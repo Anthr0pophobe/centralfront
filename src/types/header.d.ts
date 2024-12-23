@@ -9,5 +9,11 @@ export type SousCategorie = {
   readonly id: number,
   name: string,
   link: string
-  array: array,
+  container: Sub[] | string[],
+}
+
+export type Sub = {
+  readonly id: number,
+  title: string,
+  names: string[]
 }

@@ -14,13 +14,32 @@ const Header: React.FC<{}> = () => {
           id: 1,
           name: 'Voitures Occasion',
           link: '/occasionsvoitures',
-          array: undefined
+          container: [{
+            id: 1,
+            title: 'Marques populaires',
+            names: [
+              'BMW', 'Mercedes','Peugeot','Opel'
+            ]
+          },
+          {
+            id: 2,
+            title: 'Modèles populaires',
+            names: [
+              'BMW 2', 'Mercedes 1','Peugeot 206'
+            ]
+          },
+          {
+            id: 3,
+            title: '',
+            names: ["Mercedes"]
+          }
+        ]
         },
         {
           id: 2,
           name: 'Motos Occasion',
           link: '/occasionsmoto',
-          array: undefined
+          container: 'https://www.lacentrale.fr/static/fragment-header-footer/media/acheter-starified.9ad9f721.png'
         },
 
       ]
@@ -39,7 +58,7 @@ const Header: React.FC<{}> = () => {
     <div className='bg-slate-100 shadow-md h-16 flex'>
       <div className='flex-1 flex mx-32 '>
         <div className='flex items-center'>
-          <h1 className='text-rose-500 font-bold text-3xl'>
+          <h1 className='text-rose-500 font-black text-3xl'>
             la centrale
           </h1>
           <div className='flex ml-4 space-x-4'>
@@ -76,4 +95,3 @@ const Header: React.FC<{}> = () => {
 }
 
 export default Header
-
