@@ -1,6 +1,6 @@
 import { SousCategorie } from "@/types/header";
 import { Card, CardContent } from "@mui/material";
-import Image from 'next/image'
+// import Image from 'next/image'
 
 const CardCategory: React.FC<{sousCategorie:SousCategorie[]}> = ({sousCategorie}) => {
   return (
