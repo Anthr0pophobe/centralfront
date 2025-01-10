@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Selector from "./Selector";
 
 const BuySellCard:  React.FC<{}> = () => {
   const items:Object[] = [{
@@ -8,30 +9,47 @@ const BuySellCard:  React.FC<{}> = () => {
   },{
     id:2,
     name:'Vendre'
-  }]
+  }];
+
+  const vehiculeType:Object[] = [{
+    id:1,
+    name:"voiture"
+  },
+  {
+    id:2,
+    name:"Utilitaire"
+  },
+  {
+    id:3,
+    name:"Moto"
+  }];
 
   const [selected, setSelected] = useState<number>(1);
+  const [selectedType, setSelectedType] = useState<number>(1);
 
   return (
-    <div className='flex flex-col m-6'>
+    <div className='flex flex-col m-6 space-y-4'>
+      <div className='h-10 bg-gray-100 rounded-md flex flex-row py-4'>
+            {items.map((item) => (
+                <Selector
+                    key={item.id}
+                    item={item}
+                    selected={selected}
+                    onSelect={setSelected}
+                />
+            ))}
+        </div>
       <div className='h-10 bg-gray-100 rounded-md flex flex-row'>
-        {
-          items.map((item)=>{
-            let style:string
-            style = selected==item.id?"m-1 flex-1 rounded-lg text-center content-center text-rose-500 bg-white":"m-1 flex-1 rounded-lg text-center content-center"
-            return(
-            <div 
-            key={item.id}
-            onClick={() => setSelected(item.id)}
-            className={style}>
-              {item.name}
-            </div>
+      {
+          vehiculeType.map((item)=>(
+            <Selector
+                    key={item.id}
+                    item={item}
+                    selected={selectedType}
+                    onSelect={setSelectedType}
+                />
           )
-          })
-        }
-      </div>
-      <div>
-        type vehicule
+        )}
       </div>
       <div className='flex flex-row'>
         <div>marque</div>
